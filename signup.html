@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PERUSAL - Signup</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #121212;
+        overflow-x: hidden;
+        height: 100%;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+
+      body:not(.user-is-tabbing) button:focus,
+      body:not(.user-is-tabbing) input:focus,
+      body:not(.user-is-tabbing) select:focus,
+      body:not(.user-is-tabbing) textarea:focus {
+        outline: none;
+      }
+
+      h1 {
+        text-align: left;
+        font-size: 70px;
+            font-weight: 800 ;
+        margin-bottom: 40px; /* Increased margin-bottom for more space */
+        background: linear-gradient(to right, #6500c3, #a872e9, #ff0a82);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 8px;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      .content-container {
+        width: 600px;
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .form-container div {
+        width: 48%;
+      }
+
+      input,
+      select {
+        border: none;
+        border-bottom: solid rgb(143, 143, 143) 1px;
+        margin-bottom: 20px;
+        background: none;
+        color: white;
+        height: 35px;
+        width: 100%;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+      }
+
+      .submit-btn {
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 2px 2px 7px #8a2be270;
+        background: linear-gradient(to right, #b20759, #6500c3);
+        color: rgba(255, 255, 255, 0.8);
+        width: 150px;
+        padding: 10px;
+        transition: all 1s;
+        text-align: center;
+        margin: 20px auto;
+        display: block;
+      }
+
+      .submit-btn:hover {
+        color: rgb(255, 255, 255);
+        box-shadow: none;
+      }
+
+      .links {
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .link {
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+        margin: 5px 0;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      .toggle-visibility {
+        margin-top: -15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.6);
+        display: block;
+        text-align: right;
+        font-size: 0.7em;
+      }
+
+      select {
+        background: none;
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        border: none;
+        border-bottom: solid rgb(143, 143, 143) 1px;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 35px;
+      }
+
+      select option {
+        background-color: #1e1e1e;
+        color: white;
+      }
+    </style>
+    <script>
+      function togglePasswordVisibility(id) {
+        var field = document.getElementById(id);
+        if (field.type === "password") {
+          field.type = "text";
+        } else {
+          field.type = "password";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="flex-container">
+      <h1>PERUSAL</h1>
+      <div class="content-container">
+        <div class="form-container">
+          <div>
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              required
+            />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required
+            />
+            
+           
+            <input type="email" name="email" placeholder="Email ID" required />
+
+           
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Set Password"
+              required
+            />
+            <span
+              class="toggle-visibility"
+              onclick="togglePasswordVisibility('password')"
+              >Show/Hide Password</span
+            >
+
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required
+            />
+            <span
+              class="toggle-visibility"
+              onclick="togglePasswordVisibility('confirm_password')"
+              >Show/Hide Password</span
+            >
+          </div>
+          <div>
+            <input type="text" name="usn" placeholder="USN" required />
+            <select name="gender" required>
+              <option value="" disabled selected hidden>Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+
+            
+            <input
+              type="text"
+              name="skills"
+              placeholder="Skills (comma separated)"
+              required
+            />
+          </div>
+        </div>
+        <input type="submit" value="SIGN UP" class="submit-btn" />
+        <div class="links">
+          <a href="/login_page.html" class="link">Already have an account? Login</a>
+        </div>
+      </div>
+    </div>
+ 
